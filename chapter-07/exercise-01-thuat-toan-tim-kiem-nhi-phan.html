@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+</head>
+<body>
+<script>
+    // Bước 1: Xây dựng hàm binarySearch(data, intArray) có 2 tham số hình thức là giá trị cần tìm và mảng các số nguyên đã được sắp xếp
+    function binarySearch(data, intArray) {
+       let lowerBound = 0;                      // chỉ số đầu
+       let upperBound = intArray.length - 1;    // chỉ số cuối
+       let midPoint = -1;                       // chỉ số giữa
+       let index = -1;                          // vị trí tìm thấy giá trị cần tìm trong mảng
+    
+       while (lowerBound <= upperBound) {
+           midPoint = Math.floor((lowerBound + upperBound) / 2);
+           if (intArray[midPoint] == data) {
+               index = midPoint;
+               break;
+           } else {
+               if (intArray[midPoint] < data) {
+                   lowerBound = midPoint + 1;
+               }else{
+                   upperBound = midPoint - 1;
+               }
+           }
+       }
+       return index;
+    }
+
+    // Bước 2: Khai báo mảng các số nguyên đã được sắp xếp và giá trị cần tìm
+    let array = [1, 2, 3, 4, 6, 7, 9, 11, 12, 14, 15, 16, 17, 19, 33, 34, 43, 45, 55, 66];
+    let data = 9;
+
+    // Bước 3: Truyền mảng các số nguyên và giá trị cần tìm đã được khai báo như đối số của hàm binarySearch
+    let index = binarySearch(data, array);
+
+    // Bước 4: Hiển thị vị trí tìm thấy giá trị cần tìm trong mảng
+    if (index != -1) {
+       console.log(data + ' is found at the location: ' + index);
+    } else {
+       console.log('not found');
+    }
+
+    // Hãy quan sát kết quả trong Console của trình duyệt
+</script>
+</body>
+</html>
