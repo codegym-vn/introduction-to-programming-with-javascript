@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+</head>
+<body>
+<script>
+    // Bước 1: Xây dựng hàm findMin()
+   function findMin(arr) {
+      let min = arr[0];
+      for (let i = 1; i < arr.length; ++i) {
+         if (arr[i] < min) {
+            min = arr[i];
+         }
+      }
+      return min;
+   }
+
+   // Bước 2: Xây dựng hàm findMax()
+   function findMax(arr) {
+      let max = arr[0];
+      for (let i = 1; i < arr.length; ++i) {
+         if (arr[i] > max) {
+            max = arr[i];
+         }
+      }
+      return max;
+   }
+
+   // Sử dụng 2 hàm trên để tìm cả giá trị nhỏ nhất và giá trị lớn nhất của một mảng
+   let nums = [];
+   for(let i = 0; i < 100; i++) {
+      nums[i] = Math.random()*100;
+   }
+   for(let i = 0; i < nums.length; i++) {
+   document.write(nums[i] + " ");
+   }
+
+   let minValue = findMin(nums);
+   document.write("<br/>");
+   document.write("The minimum value is: " + minValue);
+   
+   let maxValue = findMax(nums);
+   document.write("<br/>");
+   document.write("The maximum value is: " + maxValue);
+
+</script>
+</body>
+</html>
