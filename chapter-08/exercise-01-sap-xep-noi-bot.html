@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+      // Bước 1: Xây dựng hàm bubbleSort()
+      // arr là một mảng bất kỳ
+      // asc là trật tự mà chúng ta muốn sắp xếp
+      // - nếu asc có giá trị true thì sắp xếp theo trật tự tăng dần
+      // - còn nếu asc có giá trị false thì sắp xếp theo trật tự giảm dần.
+
+      function bubbleSort(items, asc) {
+        let length = items.length;
+        for (let i = 0; i < length; i++) {
+          for (let j = 0; j < length - i - 1; j++) {
+            if (asc) {
+              if (items[j] > items[j + 1]) {
+                let tmp = items[j];
+                items[j] = items[j + 1];
+                items[j + 1] = tmp;
+              }
+            } else {
+              if (items[j] <= items[j + 1]) {
+                let tmp = items[j];
+                items[j] = items[j + 1];
+                items[j + 1] = tmp;
+              }
+            }
+          }
+        }
+      }
+
+      // Bước 2: Sử dụng hàm trên để sắp xếp một danh sách cho sẵn
+      let numbers_array = [3, 5, 1, 11, -3, 7, 8];
+
+      document.write("<br/>");
+      document.write("Mảng trước khi sắp xếp: " + numbers_array);
+
+      bubbleSort(numbers_array, true);
+
+      document.write("<br/>");
+      document.write("Mảng sau khi sắp xếp (tăng dần): " + numbers_array);
+
+      bubbleSort(numbers_array, false);
+
+      document.write("<br/>");
+      document.write("Mảng sau khi sắp xếp (giảm dần): " + numbers_array);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+      // Bước 1: Xây dựng hàm selectionSort()
+      // arr là một mảng bất kỳ
+      // asc là trật tự mà chúng ta muốn sắp xếp, nếu asc có giá trị true thì sắp xếp theo trật tự tăng dần, còn nến asc có giá trị false thì sắp xếp theo trật tự giảm dần.
+      function selectionSort(items, asc) {
+        if (asc) {
+          selectionIncreaseSort(items);
+        } else {
+          selectionDecreaseSort(items)
+        }
+      }
+
+      function selectionIncreaseSort(items) {
+        let minIndex, temp, len = items.length;
+        for (let i = 0; i < len; i++) {
+          minIndex = i;
+          // tìm index của giá trị nhỏ nhất
+          for (let j = i + 1; j < len; j++) {
+            if (items[j] < items[minIndex]) {
+              minIndex = j;
+            }
+          }
+
+          // Đổi chỗ
+          temp = items[i];
+          items[i] = items[minIndex];
+          items[minIndex] = temp;
+        }
+      }
+
+      function selectionDecreaseSort(items) {
+        let maxIndex, temp, len = items.length;
+        for (let i = 0; i < len; i++) {
+          maxIndex = i;
+          // tìm index của giá trị lớn nhất
+          for (let j = i + 1; j < len; j++) {
+            if (items[j] > items[maxIndex]) {
+              maxIndex = j;
+            }
+          }
+
+          // Đổi chỗ
+          temp = items[i];
+          items[i] = items[maxIndex];
+          items[maxIndex] = temp;
+        }
+      }
+
+      // Bước 2: Sử dụng hàm trên để sắp xếp một danh sách cho sẵn
+      let numbers_array = [3, 5, 1, 11, -3, 7, 8];
+
+      document.write("<br/>");
+      document.write("Mảng trước khi sắp xếp: " + numbers_array);
+
+      selectionSort(numbers_array, true);
+
+      document.write("<br/>");
+      document.write("Mảng sau khi sắp xếp (tăng dần): " + numbers_array);
+
+      selectionSort(numbers_array, false);
+
+      document.write("<br/>");
+      document.write("Mảng sau khi sắp xếp (giảm dần): " + numbers_array);
+    </script>
+  </body>
+</html>
