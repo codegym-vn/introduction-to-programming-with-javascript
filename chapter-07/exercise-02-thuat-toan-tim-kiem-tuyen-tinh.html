@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+</head>
+<body>
+<script>
+    // Bước 1: Xây dựng hàm linearSearch(data, intArray) có 2 tham số hình thức là giá trị cần tìm và mảng các số nguyên đã được sắp xếp
+    function linearSearch(data, intArray) {
+       let index = -1;
+    	  for(let i = 0;i<intArray.length;i++){
+    	      if(data == intArray[i]){
+    		    index = i;
+    		}
+       }
+       return index;
+    }
+
+    // Bước 2: Khai báo mảng các số nguyên đã được sắp xếp và giá trị cần tìm
+    let array = [1, 2, 3, 4, 6, 7, 9, 11, 12, 14, 15, 16, 17, 19, 33, 34, 43, 45, 55, 66];
+    let data = 9;
+
+    // Bước 3: Truyền mảng các số nguyên và giá trị cần tìm đã được khai báo như đối số của hàm linearSearch
+    let index = linearSearch(data, array);
+
+    // Bước 4: Hiển thị vị trí tìm thấy giá trị cần tìm trong mảng
+    if (index != -1) {
+       console.log(data + ' is found at the location: ' + index);
+    } else {
+       console.log('not found');
+    }
+
+    // Hãy quan sát kết quả trong Console của trình duyệt
+</script>
+</body>
+</html>
